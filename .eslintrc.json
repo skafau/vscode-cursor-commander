@@ -1,0 +1,11 @@
+{
+  "extends": ["@combeenation/eslint-config"],
+  // The config does not set any kind of env...
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "rules": {
+    // Overwrite rules if needed...
+  }
+}

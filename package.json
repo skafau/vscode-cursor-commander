@@ -1,0 +1,141 @@
+{
+  "name": "cursor-commander",
+  "publisher": "skafau",
+  "displayName": "cursor-commander",
+  "description": "",
+  "version": "0.0.3",
+  "prettier": "@combeenation/prettier-config",
+  "engines": {
+    "vscode": "^1.49.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cursor-commander.start-blank",
+    "onCommand:cursor-commander.show-all-line-targets"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-commander.start-blank",
+        "title": "Cursor Commander"
+      },
+      {
+        "command": "cursor-commander.show-all-line-targets",
+        "title": "Cursor Commander: Show all line targets"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cursor-commander.start-blank",
+        "key": "Ctrl+.",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cursor-commander.show-all-line-targets",
+        "key": "Ctrl+k .",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "Cursor Commander",
+        "properties": {
+          "cursor-commander.commands.showLineStarts": {
+            "type": "string",
+            "default": "1",
+            "description": ""
+          },
+          "cursor-commander.commands.showLineEnds": {
+            "type": "string",
+            "default": "3",
+            "description": ""
+          },
+          "cursor-commander.commands.showCodeStarts": {
+            "type": "string",
+            "default": "2",
+            "description": ""
+          },
+          "cursor-commander.commands.showAllLineJumpTargets": {
+            "type": "string",
+            "default": "4",
+            "description": ""
+          },
+          "cursor-commander.commands.selectWord": {
+            "type": "string",
+            "default": "sw",
+            "description": ""
+          },
+          "cursor-commander.commands.selectString": {
+            "type": "string",
+            "default": "st",
+            "description": ""
+          },
+          "cursor-commander.commands.selectLine": {
+            "type": "string",
+            "default": "sl",
+            "description": ""
+          },
+          "cursor-commander.commands.selectBlock": {
+            "type": "string",
+            "default": "sb",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "colors": [
+      {
+        "id": "cursorCommander.jumpTargetForeground",
+        "description": "Foreground/Font color of the shown jump target tokens.",
+        "defaults": {
+          "dark": "#FFF",
+          "light": "#FFF",
+          "highContrast": "#FFF"
+        }
+      },
+      {
+        "id": "cursorCommander.jumpTargetBackground",
+        "description": "Background color of the shown jump target tokens.",
+        "defaults": {
+          "dark": "#F00",
+          "light": "#F00",
+          "highContrast": "#F00"
+        }
+      },
+      {
+        "id": "cursorCommander.jumpTargetBorder",
+        "description": "Border color of the shown jump target tokens.",
+        "defaults": {
+          "dark": "#F00",
+          "light": "#F00",
+          "highContrast": "#F00"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "format": "prettier --write .",
+    "format-check": "prettier --check .",
+    "pack": "vsce package"
+  },
+  "devDependencies": {
+    "@combeenation/eslint-config": "^0.0.4",
+    "@combeenation/prettier-config": "^0.0.1",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.49.0",
+    "eslint": "^8.15.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.2"
+  }
+}
