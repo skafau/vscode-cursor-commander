@@ -3,7 +3,7 @@
   "publisher": "skafau",
   "displayName": "cursor-commander",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "prettier": "@combeenation/prettier-config",
   "engines": {
     "vscode": "^1.49.0"
