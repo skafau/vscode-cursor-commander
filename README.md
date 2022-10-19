@@ -2,11 +2,13 @@
 
 Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystrokes but provides more power in form of jump commands like select string, block, word etc. at jump target.
 
+![Cursor Commander](assets/demo.png)
+
 # Usage
 
 - Start extension using its shortcut (e.g. `Ctrl+.`)
 - Enter search term which can be 1 - x characters long -> `Enter`
-- Enter token which is shown above the search term + (optional) command sequence -> `Enter`
+- Enter token which is shown above the search term + (optional) command sequence -> `Enter`  
   E.g. `c sb` to select the block surrounding jump target `c`
 
 # Commands & Settings
@@ -43,7 +45,7 @@ Rather slow demo to show the basic features in action:
 
 ## Fast
 
-Some different actions in fast do show how it is really used.
+Some different actions in fast do show how it is really used.  
 There is no mouse involved here at all. All those cursor jumps etc. are performend with the keyboard only.
 
 ![Cursor Commander preview fast](assets/demo-fast.gif)

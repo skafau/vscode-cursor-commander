@@ -3,7 +3,7 @@
 
 import './App.css';
 import { FC } from 'react';
-import HelloWorld from './components/HelloWorld';
+import { HelloWorld, NameInput } from './components/index';
 import List from './components/List';
 
 const avengers = [
@@ -20,7 +20,8 @@ const App: FC = () => {
   return (
     <div className="App">
       <HelloWorld />
-      <List data={avengers} />
+      <NameInput />
+      <List data-name={avengers} />
     </div>
   );
 };
