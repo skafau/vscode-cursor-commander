@@ -1,15 +1,27 @@
 {
   "name": "cursor-commander",
   "publisher": "skafau",
-  "displayName": "cursor-commander",
+  "displayName": "Cursor Commander",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skafau/vscode-cursor-commander.git"
+  },
   "version": "0.0.4",
+  "icon": "assets/icon.png",
   "prettier": "@combeenation/prettier-config",
   "engines": {
     "vscode": "^1.49.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "jump",
+    "jumpy",
+    "cursor",
+    "ace",
+    "select"
   ],
   "activationEvents": [
     "onCommand:cursor-commander.start-blank",
@@ -123,7 +135,8 @@
     "watch": "tsc -watch -p ./",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
-    "pack": "vsce package"
+    "pack": "vsce package",
+    "pub": "vsco publish"
   },
   "devDependencies": {
     "@combeenation/eslint-config": "^0.0.4",
