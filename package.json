@@ -136,7 +136,7 @@
     "format": "prettier --write .",
     "format-check": "prettier --check .",
     "pack": "vsce package",
-    "pub": "vsco publish"
+    "pub": "vsce publish"
   },
   "devDependencies": {
     "@combeenation/eslint-config": "^0.0.4",
