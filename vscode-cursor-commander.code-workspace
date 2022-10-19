@@ -1,11 +1,14 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"typescript.tsc.autoDetect": "off",
-		"terminal.integrated.defaultProfile.windows": "Command Prompt"
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.tsc.autoDetect": "off",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt"
+  },
+  "extensions": {
+    "recommendations": ["EditorConfig.EditorConfig", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+  }
 }

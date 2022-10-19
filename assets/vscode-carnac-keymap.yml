@@ -1,0 +1,12 @@
+group:          vscode
+process:        Code
+
+# Reference: https://code.visualstudio.com/docs/getstarted/keybindings
+
+shortcuts:
+    - name: Cursor Commander
+      keys:
+      - Ctrl+.
+    - name: Cursor Commander Show all line targets
+      keys:
+      - Ctrl+<
