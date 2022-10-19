@@ -1,24 +1,52 @@
-# cursor-commander README
+# [Cursor Commander](https://marketplace.visualstudio.com/items?itemName=skafau.cursor-commander)
 
 Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystrokes but provides more power in form of jump commands like select string, block, word etc. at jump target.
 
-## Extension Settings
+# Usage
 
-### Commands
+- Start extension using its shortcut (e.g. `Ctrl+.`)
+- Enter search term which can be 1 - x characters long -> `Enter`
+- Enter token which is shown above the search term + (optional) command sequence -> `Enter`
+  E.g. `c sb` to select the block surrounding jump target `c`
+
+# Commands & Settings
+
+## Commands
 
 - `cursor-commander.start-blank`: Bound to `Ctrl+.` by default
-- `cursor-commander.show-all-line-targets`: Bound to `Ctrl+k .` by default
+- `cursor-commander.show-all-line-targets`: Bound to `Ctrl+,` by default
 
-### Settings
+## Settings (Command sequences)
 
 - `cursor-commander.commands.showLineStarts`: Default `1`
 - `cursor-commander.commands.showCodeStarts`: Default `2`
 - `cursor-commander.commands.showLineEnds`: Default `3`
 - `cursor-commander.commands.showAllLineJumpTargets`: Default `4`
 - `cursor-commander.commands.selectWord`: Default `sw`
-- `cursor-commander.commands.selectString`: Default `st`
+- `cursor-commander.commands.selectString`: Default `ss`
 - `cursor-commander.commands.selectBlock`: Default `sb`
 - `cursor-commander.commands.selectLine`: Default `sl`
+
+## Color customization in theme settings
+
+- `cursorCommander.jumpTargetForeground`
+- `cursorCommander.jumpTargetBackground`
+- `cursorCommander.jumpTargetBorder`
+
+# Demo
+
+## Slow
+
+Rather slow demo to show the basic features in action:
+
+![Cursor Commander preview slow](assets/demo-slow.gif)
+
+## Fast
+
+Some different actions in fast do show how it is really used.
+There is no mouse involved here at all. All those cursor jumps etc. are performend with the keyboard only.
+
+![Cursor Commander preview fast](assets/demo-fast.gif)
 
 # Known issues & limitations
 

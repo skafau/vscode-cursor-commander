@@ -47,7 +47,7 @@
       },
       {
         "command": "cursor-commander.show-all-line-targets",
-        "key": "Ctrl+k .",
+        "key": "Ctrl+,",
         "when": "editorTextFocus"
       }
     ],
@@ -82,7 +82,7 @@
           },
           "cursor-commander.commands.selectString": {
             "type": "string",
-            "default": "st",
+            "default": "ss",
             "description": ""
           },
           "cursor-commander.commands.selectLine": {
