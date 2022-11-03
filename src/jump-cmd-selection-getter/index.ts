@@ -3,6 +3,7 @@ import { executorCmds } from '../constants';
 import { JumpTarget } from '../jump-target';
 import { getBlockJumpSelection } from './block-selection-getter';
 import { getLineJumpSelection } from './link-selection-getter';
+import { getSelectToSelection } from './select-to-getter';
 import { getStringJumpSelection } from './string-selection-getter';
 import { getWordJumpSelection } from './word-selection-getter';
 
@@ -13,6 +14,7 @@ const _jumpCmdSelectionGetters: Record<string, JumpSelectionGetter> = {
   [executorCmds.selectWord]: getWordJumpSelection,
   [executorCmds.selectBlock]: getBlockJumpSelection,
   [executorCmds.selectLine]: getLineJumpSelection,
+  [executorCmds.selectTo]: getSelectToSelection,
 };
 
 /**

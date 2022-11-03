@@ -94,6 +94,11 @@
             "type": "string",
             "default": "sb",
             "description": ""
+          },
+          "cursor-commander.commands.selectTo": {
+            "type": "string",
+            "default": "st",
+            "description": ""
           }
         }
       }

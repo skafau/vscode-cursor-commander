@@ -4,7 +4,7 @@ Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystroke
 
 ![Cursor Commander](assets/demo.png)
 
-# Usage
+# Usagedo show
 
 - Start extension using its shortcut (e.g. `Ctrl+.`)
 - Enter search term which can be 1 - x characters long -> `Enter`
@@ -28,6 +28,7 @@ Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystroke
 - `cursor-commander.commands.selectString`: Default `ss`
 - `cursor-commander.commands.selectBlock`: Default `sb`
 - `cursor-commander.commands.selectLine`: Default `sl`
+- `cursor-commander.commands.selectTo`: Default `st`
 
 ## Color customization in theme settings
 
@@ -45,7 +46,7 @@ Rather slow demo to show the basic features in action:
 
 ## Fast
 
-Some different actions in fast do show how it is really used.  
+Some different actions in fast to show how it is really used.  
 There is no mouse involved here at all. All those cursor jumps etc. are performend with the keyboard only.
 
 ![Cursor Commander preview fast](assets/demo-fast.gif)
@@ -75,3 +76,10 @@ There is no mouse involved here at all. All those cursor jumps etc. are performe
 
 This is a personal project of mine and I have no intentions of fixing bugs or implementing features which don't effect me personally as I don't want to invest too much time in it.
 However, feel free to report issues & feature requests on GitHub as there's always a chance that I have a personal interest in the topic at hand 😉. Also pull requests are very welcome.
+
+# Project links
+
+- [VSCode marketplace](https://marketplace.visualstudio.com/items?itemName=skafau.cursor-commander)
+- [GitHub repo](https://github.com/skafau/vscode-cursor-commander)
+- [GitHub project board](https://github.com/users/skafau/projects/1)
+- [GitHub release notes](https://github.com/skafau/vscode-cursor-commander/releases)
