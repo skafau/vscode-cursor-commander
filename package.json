@@ -55,50 +55,50 @@
       {
         "title": "Cursor Commander",
         "properties": {
-          "cursor-commander.commands.showLineStarts": {
+          "cursorCommander.jumpTargetModes.showLineStarts": {
             "type": "string",
             "default": "1",
-            "description": ""
+            "description": "Show jump targets at the beginning of each line"
           },
-          "cursor-commander.commands.showLineEnds": {
+          "cursorCommander.jumpTargetModes.showLineEnds": {
             "type": "string",
             "default": "3",
-            "description": ""
+            "description": "Show jump targets at the end of each line"
           },
-          "cursor-commander.commands.showCodeStarts": {
+          "cursorCommander.jumpTargetModes.showCodeStarts": {
             "type": "string",
             "default": "2",
-            "description": ""
+            "description": "Show jump targets at the beginning of each line"
           },
-          "cursor-commander.commands.showAllLineJumpTargets": {
+          "cursorCommander.jumpTargetModes.showAllLineJumpTargets": {
             "type": "string",
             "default": "4",
-            "description": ""
+            "description": "Show jump targets at the beginning & end of each line"
           },
-          "cursor-commander.commands.selectWord": {
+          "cursorCommander.jumpCommands.selectWord": {
             "type": "string",
             "default": "sw",
-            "description": ""
+            "description": "Select the word surrounding the jump target(s)"
           },
-          "cursor-commander.commands.selectString": {
+          "cursorCommander.jumpCommands.selectString": {
             "type": "string",
             "default": "ss",
-            "description": ""
+            "description": "Select the string surrounding the jump target(s)"
           },
-          "cursor-commander.commands.selectLine": {
+          "cursorCommander.jumpCommands.selectLine": {
             "type": "string",
             "default": "sl",
-            "description": ""
+            "description": "Select the whole line in which the jump target(s) is located in"
           },
-          "cursor-commander.commands.selectBlock": {
+          "cursorCommander.jumpCommands.selectBlock": {
             "type": "string",
             "default": "sb",
-            "description": ""
+            "description": "Select the next clode block surrounding the jump target(s)"
           },
-          "cursor-commander.commands.selectTo": {
+          "cursorCommander.jumpCommands.selectTo": {
             "type": "string",
             "default": "st",
-            "description": ""
+            "description": "Create a selection from the current cursor position to the jump target"
           }
         }
       }

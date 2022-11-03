@@ -1,17 +1,17 @@
 import * as vscode from 'vscode';
 
-const workbenchConfig = vscode.workspace.getConfiguration('cursor-commander');
+const workbenchConfig = vscode.workspace.getConfiguration('cursorCommander');
 
-const showLineStartsCmd = <string>workbenchConfig.get('commands.showLineStarts');
-const showCodeStartsCmd = <string>workbenchConfig.get('commands.showCodeStarts');
-const showLineEndsCmd = <string>workbenchConfig.get('commands.showLineEnds');
-const showAllLineJumpTargetsCmd = <string>workbenchConfig.get('commands.showAllLineJumpTargets');
+const showLineStartsCmd = <string>workbenchConfig.get('jumpTargetModes.showLineStarts');
+const showCodeStartsCmd = <string>workbenchConfig.get('jumpTargetModes.showCodeStarts');
+const showLineEndsCmd = <string>workbenchConfig.get('jumpTargetModes.showLineEnds');
+const showAllLineJumpTargetsCmd = <string>workbenchConfig.get('jumpTargetModes.showAllLineJumpTargets');
 
-const selectWordCmd = <string>workbenchConfig.get('commands.selectWord');
-const selectStringCmd = <string>workbenchConfig.get('commands.selectString');
-const selectLineCmd = <string>workbenchConfig.get('commands.selectLine');
-const selectBlockCmd = <string>workbenchConfig.get('commands.selectBlock');
-const selectToCmd = <string>workbenchConfig.get('commands.selectTo');
+const selectWordCmd = <string>workbenchConfig.get('jumpCommands.selectWord');
+const selectStringCmd = <string>workbenchConfig.get('jumpCommands.selectString');
+const selectLineCmd = <string>workbenchConfig.get('jumpCommands.selectLine');
+const selectBlockCmd = <string>workbenchConfig.get('jumpCommands.selectBlock');
+const selectToCmd = <string>workbenchConfig.get('jumpCommands.selectTo');
 
 export const lineJumpCmds = {
   showLineStarts: showLineStartsCmd,
