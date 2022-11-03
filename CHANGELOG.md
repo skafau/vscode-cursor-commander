@@ -1,3 +1,10 @@
+## Version 0.0.7
+
+- New: Implemented jump cmds:
+  - Select to
+
+[Changes](https://github.com/skafau/vscode-cursor-commander/compare/v0.0.6...v0.0.7)
+
 ## Version 0.0.6
 
 - Change: Improved readme with demo gifs
