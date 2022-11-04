@@ -1,11 +1,6 @@
 import { Range, TextEditorDecorationType, TextLine, window } from 'vscode';
 import { MatchModes } from './constants';
 
-interface JumpTargetProps {
-  foreground: TextEditorDecorationType;
-  range: Range;
-}
-
 export class JumpTarget {
   token: string;
   foreground: TextEditorDecorationType;
@@ -15,14 +10,15 @@ export class JumpTarget {
    * @param posInLine Not needed for "line jump" match modes
    */
   constructor(jumpTargetToken: string, matchMode: MatchModes, line: TextLine, posInLine?: number) {
-    const props =
+    const foreground = this._createForegroundDecorationType(jumpTargetToken, false);
+    const range =
       matchMode === MatchModes.findMatch
-        ? this._createFindMatchJumpTargetProps(jumpTargetToken, line, posInLine || 0)
-        : this._createLineJumpTargetProps(jumpTargetToken, matchMode, line);
+        ? this._createFindMatchJumpTargetRange(line, posInLine || 0)
+        : this._createLineJumpTargetRange(matchMode, line);
 
     this.token = jumpTargetToken;
-    this.foreground = props.foreground;
-    this.range = props.range;
+    this.foreground = foreground;
+    this.range = range;
   }
 
   dispose(): void {
@@ -35,11 +31,10 @@ export class JumpTarget {
     this.foreground = newFg;
   }
 
-  private _createLineJumpTargetProps(
-    jumpTargetToken: string,
+  private _createLineJumpTargetRange(
     matchMode: MatchModes.lineStart | MatchModes.lineEnd | MatchModes.codeStart,
     line: TextLine
-  ): JumpTargetProps {
+  ): Range {
     const lineNo = line.lineNumber;
     const lineText = line.text;
     const lineEndPos = Math.max(0, lineText.length);
@@ -50,18 +45,14 @@ export class JumpTarget {
         : MatchModes.lineEnd === matchMode
         ? lineEndPos
         : codeStartPos;
-    const foreground = this._createForegroundDecorationType(jumpTargetToken, false);
     const range = new Range(lineNo, posInLine, lineNo, posInLine);
-
-    return { foreground, range };
+    return range;
   }
 
-  private _createFindMatchJumpTargetProps(jumpTargetToken: string, line: TextLine, posInLine: number): JumpTargetProps {
+  private _createFindMatchJumpTargetRange(line: TextLine, posInLine: number): Range {
     const lineNo = line.lineNumber;
-    const foreground = this._createForegroundDecorationType(jumpTargetToken, false);
     const range = new Range(lineNo, posInLine, lineNo, posInLine);
-
-    return { foreground, range };
+    return range;
   }
 
   private _createForegroundDecorationType(jumpTargetToken: string, highlighted: boolean): TextEditorDecorationType {
