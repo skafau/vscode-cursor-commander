@@ -130,6 +130,33 @@
           "light": "#F00",
           "highContrast": "#F00"
         }
+      },
+      {
+        "id": "cursorCommander.jumpTargetForegroundSelected",
+        "description": "Foreground/Font color of the selected jump target tokens.",
+        "defaults": {
+          "dark": "#000",
+          "light": "#000",
+          "highContrast": "#000"
+        }
+      },
+      {
+        "id": "cursorCommander.jumpTargetBackgroundSelected",
+        "description": "Background color of the selected jump target tokens.",
+        "defaults": {
+          "dark": "#1eff00",
+          "light": "#1eff00",
+          "highContrast": "#1eff00"
+        }
+      },
+      {
+        "id": "cursorCommander.jumpTargetBorderSelected",
+        "description": "Border color of the selected jump target tokens.",
+        "defaults": {
+          "dark": "#1eff00",
+          "light": "#1eff00",
+          "highContrast": "#1eff00"
+        }
       }
     ]
   },

@@ -4,6 +4,9 @@ import { escapeRegExPattern } from './helper';
 import { JumpTarget } from './jump-target';
 import { getJumpTargetToken } from './jump-target-tokens';
 
+/**
+ * Key = Jump target token
+ */
 export type JumpTargetMap = Map<string, JumpTarget>;
 
 export class JumpTargetCtrlr {
@@ -67,6 +70,14 @@ export class JumpTargetCtrlr {
     const endLine = visibleRange?.end.line || 0;
 
     return { startLine, endLine };
+  }
+
+  setTargetHighlight(token: string, highlighted: boolean): void {
+    const target = this.visibleTargets.get(token);
+    if (target) {
+      target.setHighlighted(highlighted);
+      this._textEditor.setDecorations(target.foreground, [target.range]);
+    }
   }
 
   disposeAll(): void {

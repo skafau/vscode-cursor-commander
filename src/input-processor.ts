@@ -35,10 +35,15 @@ export class InputProcessor {
     }
   }
 
-  async processExecutorInput(input: string, forceExecution: boolean): Promise<void> {
+  async processExecutorInput(input: string, execute: boolean): Promise<void> {
     const parsedInput = parseExecutorInput(input, this._jumpTargetCtrlr.visibleTargets);
 
-    if (forceExecution) {
+    this._jumpTargetCtrlr.visibleTargets.forEach((_target, targetToken) => {
+      const isSelectedTarget = parsedInput.jumpTargets.has(targetToken);
+      this._jumpTargetCtrlr.setTargetHighlight(targetToken, isSelectedTarget);
+    });
+
+    if (execute) {
       await this._jumpExecutor.executeJump(parsedInput, this._jumpTargetCtrlr.document);
     }
   }
