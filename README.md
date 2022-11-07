@@ -29,6 +29,7 @@ Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystroke
 - `cursor-commander.commands.selectBlock`: Default `sb`
 - `cursor-commander.commands.selectLine`: Default `sl`
 - `cursor-commander.commands.selectTo`: Default `st`
+- `cursor-commander.commands.selectConnectedWords`: Default `sc`
 
 ## Color customization in theme settings
 

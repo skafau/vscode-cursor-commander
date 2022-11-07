@@ -99,6 +99,11 @@
             "type": "string",
             "default": "st",
             "description": "Create a selection from the current cursor position to the jump target"
+          },
+          "cursorCommander.jumpCommands.selectConnectedWords": {
+            "type": "string",
+            "default": "sc",
+            "description": "Select all words surrounding the jump target(s) which are not separated by blanks, brackets, quotes etc. (e.g. `this._inputBox.getValue` etc.)"
           }
         }
       }

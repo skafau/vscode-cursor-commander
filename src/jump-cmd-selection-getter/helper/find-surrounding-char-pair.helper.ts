@@ -68,56 +68,40 @@ function _findSurroundingCharPairBalancedIdx(
 }
 
 /**
- * Searches within a given text for the first "closing char" which appears after a given index.
- * E.g. search for the first ', ", } etc. after the given index.
+ * Searches within a given text for the first char of a given set which appears before or after a given index.
+ * E.g. search for the first ', ", }, < etc. before or after the given index.
  *
- * @param text      The whole text to search within
- * @param targetIdx The index after which the closing char is to be found
- * @param endChar   The closing char which is to be found
- *
- * @returns Index of the found char. -1 if nothing found at all.
- */
-function _findSurroundingCharPairEndIdx(text: string, targetIdx: number, endChar: string): number {
-  const textAfterTarget = text.slice(targetIdx);
-  const regExpAfterTarget = new RegExp(`^[^${endChar}]*`, 'g');
-  const resAfterTarget = regExpAfterTarget.exec(textAfterTarget);
-
-  if (!resAfterTarget || resAfterTarget.index < 0) return -1;
-
-  const foundStrEndText = resAfterTarget[0];
-  const foundStrEndIdx = targetIdx + foundStrEndText.length;
-  return foundStrEndIdx;
-}
-
-/**
- * Search within a given text fo rthe first "opening char" which appears before a given index.
- * E.g. search for the first ', ", } etc. before the given index.
- *
- * @param text         The whole text to search within
- * @param targetIdx    The index before which the opening char is to be found
- * @param openingChars All allowed opening characters
+ * @param text             The whole text to search within
+ * @param targetIdx        The index after (or before) which the char is to be found
+ * @param findBeforeTarget True = Search before the target index
+ *                         False = Search after the target index
+ * @param chars            The chars to search for
  *
  * @returns Undefined if opening char has not been found at all
  */
-function _findSurroundingCharPairStartIdx(
+export function findNextChar(
   text: string,
   targetIdx: number,
-  openingChars: string
+  findBeforeTarget: boolean,
+  chars: string
 ): CharSearchResult | undefined {
-  // Regex copied from https://stackoverflow.com/a/26530130/1273551. I did not really question the regex details, nor
-  // did I "stress tested" it anyhow but seems to be doing its job so far 🤷‍♂️
-  const textBeforeTarget = text.slice(0, targetIdx);
-  const regExpBeforeTarget = new RegExp(`([^${openingChars}]*$)`, 'g');
-  const resBeforeTarget = regExpBeforeTarget.exec(textBeforeTarget);
+  // The "find before" regex copied from https://stackoverflow.com/a/26530130/1273551. I did not really question the
+  // regex details, nor did I "stress test" it anyhow but seems to be doing its job so far 🤷‍♂️
+  const searchText = findBeforeTarget ? text.slice(0, targetIdx) : text.slice(targetIdx);
+  const charsEscaped = escapeRegExPattern(chars);
+  const regExpPattern = findBeforeTarget ? `([^${charsEscaped}]*$)` : `^[^${charsEscaped}]*`;
+  const regExp = new RegExp(regExpPattern, 'g');
+  const result = regExp.exec(searchText);
 
-  if (!resBeforeTarget || resBeforeTarget.index < 0) return undefined;
+  if (!result || result.index < 0) return undefined;
 
-  const matchStartIdx = resBeforeTarget.index;
-  const matchStartChar = textBeforeTarget.slice(matchStartIdx - 1, resBeforeTarget.index);
+  const textToMatch = result[0];
+  const idx = findBeforeTarget ? result.index : targetIdx + textToMatch.length;
+  const matchingChar = findBeforeTarget ? searchText.slice(idx - 1, idx) : text.slice(idx, idx + 1);
 
   return {
-    idx: matchStartIdx,
-    char: matchStartChar,
+    idx,
+    char: matchingChar,
   };
 }
 
@@ -137,7 +121,7 @@ export function findSurroundingCharPair(
 
   const matchStart = needsBalancedMatch
     ? _findSurroundingCharPairBalancedIdx(text, targetIdx, charMatchers, true)
-    : _findSurroundingCharPairStartIdx(text, targetIdx, openingChars);
+    : findNextChar(text, targetIdx, true, openingChars);
 
   if (!matchStart) return undefined;
 
@@ -145,7 +129,7 @@ export function findSurroundingCharPair(
   const endMatcher: SurroundingCharMatchers = { [matchStart.char]: matchEndChar };
   const matchEndIdx = needsBalancedMatch
     ? _findSurroundingCharPairBalancedIdx(text, matchStart.idx, endMatcher, false)?.idx
-    : _findSurroundingCharPairEndIdx(text, targetIdx, matchEndChar);
+    : findNextChar(text, targetIdx, false, matchEndChar)?.idx;
 
   if (!matchEndIdx || matchEndIdx < 0 || matchEndIdx < targetIdx) return undefined;
 

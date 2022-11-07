@@ -3,6 +3,7 @@
 - New: Highlight selected jump target token [#1](https://github.com/skafau/vscode-cursor-commander/issues/1)
 - New: Implemented jump cmds:
   - Select to [#4](https://github.com/skafau/vscode-cursor-commander/issues/4)
+  - Select connected words [#8](https://github.com/skafau/vscode-cursor-commander/issues/8)
 
 [Changes](https://github.com/skafau/vscode-cursor-commander/compare/v0.0.6...v0.0.7)
 

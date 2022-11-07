@@ -12,6 +12,7 @@ const selectStringCmd = <string>workbenchConfig.get('jumpCommands.selectString')
 const selectLineCmd = <string>workbenchConfig.get('jumpCommands.selectLine');
 const selectBlockCmd = <string>workbenchConfig.get('jumpCommands.selectBlock');
 const selectToCmd = <string>workbenchConfig.get('jumpCommands.selectTo');
+const selectConnectedWords = <string>workbenchConfig.get('jumpCommands.selectConnectedWords');
 
 export const lineJumpCmds = {
   showLineStarts: showLineStartsCmd,
@@ -26,6 +27,7 @@ export const executorCmds = {
   selectLine: selectLineCmd,
   selectBlock: selectBlockCmd,
   selectTo: selectToCmd,
+  selectConnectedWords: selectConnectedWords,
 };
 
 export const allCmds = [...Object.values(lineJumpCmds), ...Object.values(executorCmds)].filter(Boolean);

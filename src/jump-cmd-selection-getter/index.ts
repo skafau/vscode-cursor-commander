@@ -2,6 +2,7 @@ import { Selection, TextDocument } from 'vscode';
 import { executorCmds } from '../constants';
 import { JumpTarget } from '../jump-target';
 import { getBlockJumpSelection } from './block-selection-getter';
+import { getSelectedConnectedWordsSelection } from './connected-word-selection-getter';
 import { getLineJumpSelection } from './link-selection-getter';
 import { getSelectToSelection } from './select-to-getter';
 import { getStringJumpSelection } from './string-selection-getter';
@@ -15,6 +16,7 @@ const _jumpCmdSelectionGetters: Record<string, JumpSelectionGetter> = {
   [executorCmds.selectBlock]: getBlockJumpSelection,
   [executorCmds.selectLine]: getLineJumpSelection,
   [executorCmds.selectTo]: getSelectToSelection,
+  [executorCmds.selectConnectedWords]: getSelectedConnectedWordsSelection,
 };
 
 /**

@@ -1,3 +1,6 @@
+/* eslint-disable */
+//@ts-nocheck
+
 import { CmpUtils } from '@combeenation/custom-js-utils';
 import { CmpNames, ParamNames } from './../moltomova-cl3d-constants';
 import { showLoadInfo } from './../moltomova-cl3d-loadinfo-mgr';
