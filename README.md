@@ -4,7 +4,7 @@ Inspired by extensions like Jumpy, Cursor Jump or Ace Jump. Needs more keystroke
 
 ![Cursor Commander](assets/demo.png)
 
-# Usagedo show
+# Usage
 
 - Start extension using its shortcut (e.g. `Ctrl+.`)
 - Enter search term which can be 1 - x characters long -> `Enter`
