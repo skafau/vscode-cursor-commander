@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/skafau/vscode-cursor-commander.git"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "icon": "assets/icon.png",
   "prettier": "@combeenation/prettier-config",
   "engines": {
