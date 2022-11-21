@@ -3,6 +3,7 @@ import { MatchModes } from './constants';
 
 export class JumpTarget {
   token: string;
+  highlighted: boolean;
   foreground: TextEditorDecorationType;
   range: Range;
 
@@ -17,6 +18,7 @@ export class JumpTarget {
         : this._createLineJumpTargetRange(matchMode, line);
 
     this.token = jumpTargetToken;
+    this.highlighted = false;
     this.foreground = foreground;
     this.range = range;
   }
@@ -28,6 +30,7 @@ export class JumpTarget {
   setHighlighted(highlighted: boolean): void {
     this.foreground.dispose();
     const newFg = this._createForegroundDecorationType(this.token, highlighted);
+    this.highlighted = highlighted;
     this.foreground = newFg;
   }
 

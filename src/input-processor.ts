@@ -36,12 +36,15 @@ export class InputProcessor {
   }
 
   async processExecutorInput(input: string, execute: boolean): Promise<void> {
-    const parsedInput = parseExecutorInput(input, this._jumpTargetCtrlr.visibleTargets);
+    const visibleTargets = this._jumpTargetCtrlr.visibleTargets;
+    const parsedInput = parseExecutorInput(input, visibleTargets);
+    const highlightedTokens = [...visibleTargets].filter(([_k, v]) => v.highlighted).map(([k]) => k);
+    const inputJumpTargetTokens = [...parsedInput.jumpTargets.keys()];
+    const tokensToUnhighlight = highlightedTokens.filter(x => !inputJumpTargetTokens.includes(x));
+    const tokensToHighlight = inputJumpTargetTokens.filter(x => !highlightedTokens.includes(x));
 
-    this._jumpTargetCtrlr.visibleTargets.forEach((_target, targetToken) => {
-      const isSelectedTarget = parsedInput.jumpTargets.has(targetToken);
-      this._jumpTargetCtrlr.setTargetHighlight(targetToken, isSelectedTarget);
-    });
+    tokensToUnhighlight.forEach(x => this._jumpTargetCtrlr.setTargetHighlight(x, false));
+    tokensToHighlight.forEach(x => this._jumpTargetCtrlr.setTargetHighlight(x, true));
 
     if (execute) {
       await this._jumpExecutor.executeJump(parsedInput, this._jumpTargetCtrlr.document);
